@@ -52,7 +52,9 @@ plt.show()
 disp = ConfusionMatrixDisplay(confusion_matrix(y_test , y_test_p))
 disp.plot()
 plt.show()
-print(classification_report(y_test , y_test_p))
+print (" Tocnost : " , accuracy_score (y_test , y_test_p))
+print(" Preciznost : ", precision_score(y_test, y_test_p))
+print(" Odziv: ", recall_score(y_test, y_test_p))
 
 #e
 y1 = (y_test==y_test_p)
