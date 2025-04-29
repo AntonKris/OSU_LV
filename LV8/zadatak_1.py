@@ -46,11 +46,8 @@ y_test_s = keras.utils.to_categorical(y_test, num_classes)
 model = keras.Sequential()
 model.add(layers.Input(shape=input_shape))
 model.add(layers.Flatten())
-model.add(layers.Dense(1024, activation="relu"))
-model.add(layers.Dense(512, activation="relu"))
-model.add(layers.Dense(256, activation="relu"))
-model.add(layers.Dense(128, activation="relu"))
-model.add(layers.Dense(64, activation="relu"))
+model.add(layers.Dense(100, activation="relu"))
+model.add(layers.Dense(50, activation="relu"))
 model.add(layers.Dense(num_classes, activation="softmax"))
 
 model.summary()
@@ -61,7 +58,7 @@ model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["accur
 
 # TODO: provedi ucenje mreze
 batch_size = 32
-epochs = 15
+epochs = 25
 history = model.fit(x_train_s, y_train_s, batch_size = batch_size, epochs = epochs, validation_split = 0.1)
 
 predictions = model.predict(x_test_s)
